@@ -1,0 +1,28 @@
+<%= form_with(model: @job_application, local: true) do |form| %>
+  <div>
+    <%= form.label :company, "Company Name" %>
+    <%= form.text_field :company %>
+  </div>
+
+  <div>
+    <%= form.label :title, "Job Title" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :status, "Application Status" %>
+    <%= form.select :status, ["Applied", "Interview", "Offer", "Rejected"] %>
+  </div>
+
+  <div>
+    <%= form.label :applied_date, "Date Applied" %>
+    <%= form.date_field :applied_date %>
+  </div>
+
+  <div>
+    <%= form.label :notes, "Notes" %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <%= form.submit "Save Job Application" %>
+<% end %>

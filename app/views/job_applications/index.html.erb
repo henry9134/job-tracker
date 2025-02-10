@@ -1,0 +1,12 @@
+<h1>Job Applications</h1>
+
+<ul>
+  <% @job_applications.each do |job| %>
+    <li>
+      <strong><%= job.title %></strong> at <%= job.company %>
+      - Status: <%= job.status %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add New Job", new_job_application_path %>
