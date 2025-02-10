@@ -1,0 +1,16 @@
+<h1>Interview Schedule</h1>
+
+<div id="calendar"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      events: <%= @job_applications.map { |job| { title: job.title, start: job.interview_date } }.to_json.html_safe %>
+    });
+    calendar.render();
+  });
+</script>
+
+<%= link_to "Back to Job List", job_applications_path, class: "btn btn-primary" %>

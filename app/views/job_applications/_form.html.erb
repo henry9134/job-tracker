@@ -25,4 +25,14 @@
   </div>
 
   <%= form.submit "Save Job Application" %>
+
+  <div>
+  <%= form.label :applied_date, "Date Applied" %>
+  <%= form.date_field :applied_date %>
+</div>
+
+<div>
+  <%= form.label :interview_date, "Scheduled Interview Date" %>
+  <%= form.date_field :interview_date %>
+</div>
 <% end %>
