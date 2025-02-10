@@ -1,18 +1,40 @@
 <h1>Job Applications</h1>
 
+<!-- Links for adding new jobs and viewing the calendar -->
 <%= link_to "View Interview Calendar", calendar_job_applications_path, class: "btn btn-info" %><br><br>
-<%= link_to "Add New Job", new_job_application_path, class: "btn btn-primary" %>
+<%= link_to "Add New Job", new_job_application_path, class: "btn btn-primary" %><br><br>
 
-<ul>
-  <% @job_applications.each do |job| %>
-    <li>
-      <strong><%= job.title %></strong> at <%= job.company %>
-      - Status: <%= job.status %>
-      - Applied on: <%= job.applied_date.strftime("%B %d, %Y") if job.applied_date %>
-      - Interview Date: <%= job.interview_date.strftime("%B %d, %Y") if job.interview_date %>
+<!-- Job Applications Organized in Columns -->
+<div style="display: flex; justify-content: space-between;">
 
-      | <%= link_to "Edit", edit_job_application_path(job) %>
-      | <%= link_to "Delete", job_application_path(job), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
+  <!-- Pending Applications -->
+  <div style="width: 30%;">
+    <h2>Pending Applications</h2>
+    <ul>
+      <% @job_applications.where(status: "Pending").each do |job| %>
+        <li><%= job.company %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- Accepted Applications -->
+  <div style="width: 30%;">
+    <h2>Accepted Applications</h2>
+    <ul>
+      <% @job_applications.where(status: "Accepted").each do |job| %>
+        <li><%= job.company %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- Rejected Applications -->
+  <div style="width: 30%;">
+    <h2>Rejected Applications</h2>
+    <ul>
+      <% @job_applications.where(status: "Rejected").each do |job| %>
+        <li><%= job.company %></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

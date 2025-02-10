@@ -67,3 +67,6 @@ group :test do
 end
 
 gem "ostruct"
+
+gem "mechanize", "~> 2.14"
+gem "nokogiri", "~> 1.18"
