@@ -79,3 +79,5 @@ gem "sassc-rails", "~> 2.1"
 gem 'devise'
 
 gem 'font-awesome-rails'
+
+gem 'font-awesome-sass'

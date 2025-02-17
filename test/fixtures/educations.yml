@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resume: one
+  school_name: MyString
+  start_date: 2025-02-17
+  graduation_date: 2025-02-17
+  major: MyString
+  details: MyText
+
+two:
+  resume: two
+  school_name: MyString
+  start_date: 2025-02-17
+  graduation_date: 2025-02-17
+  major: MyString
+  details: MyText

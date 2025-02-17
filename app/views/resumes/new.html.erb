@@ -1,0 +1,124 @@
+<h1>Create a New Resume</h1>
+
+<%= form_with(model: @resume, local: true) do |f| %>
+  <div class="mb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :date_of_birth %>
+    <%= f.date_field :date_of_birth, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :phone_number %>
+    <%= f.telephone_field :phone_number, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :summary %>
+    <%= f.text_area :summary, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :github_link, 'GitHub Link' %>
+    <%= f.url_field :github_link, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :linkedin_link, 'LinkedIn Link' %>
+    <%= f.url_field :linkedin_link, class: 'form-control' %>
+  </div>
+
+  <h2>Education</h2>
+  <%= f.fields_for :educations do |edu| %>
+    <div class="mb-3">
+      <%= edu.label :school_name %>
+      <%= edu.text_field :school_name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= edu.label :start_date %>
+      <%= edu.date_field :start_date, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= edu.label :graduation_date %>
+      <%= edu.date_field :graduation_date, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= edu.label :major %>
+      <%= edu.text_field :major, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= edu.label :details %>
+      <%= edu.text_area :details, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <h2>Experience</h2>
+  <%= f.fields_for :experiences do |exp| %>
+    <div class="mb-3">
+      <%= exp.label :company_name %>
+      <%= exp.text_field :company_name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= exp.label :start_date %>
+      <%= exp.date_field :start_date, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= exp.label :end_date %>
+      <%= exp.date_field :end_date, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= exp.label :position %>
+      <%= exp.text_field :position, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= exp.label :location %>
+      <%= exp.text_field :location, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= exp.label :details %>
+      <%= exp.text_area :details, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <h2>Skills</h2>
+  <%= f.fields_for :skills do |skill| %>
+    <div class="mb-3">
+      <%= skill.label :name %>
+      <%= skill.text_field :name, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <h2>Certifications</h2>
+  <%= f.fields_for :certifications do |cert| %>
+    <div class="mb-3">
+      <%= cert.label :name %>
+      <%= cert.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= cert.label :organization %>
+      <%= cert.text_field :organization, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= cert.label :issue_date %>
+      <%= cert.date_field :issue_date, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= cert.label :expiration_date %>
+      <%= cert.date_field :expiration_date, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= cert.label :details %>
+      <%= cert.text_area :details, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <%= f.submit 'Save Resume', class: 'btn btn-success' %>
+<% end %>

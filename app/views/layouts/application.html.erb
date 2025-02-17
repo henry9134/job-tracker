@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
 
 <body class="bg-light">
@@ -20,13 +21,24 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/job_applications">Jobs</a>
+            <a class="nav-link" href="/job_applications">
+              <i class="fas fa-briefcase"></i> Jobs
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/job_applications/calendar">Interview Calendar</a>
+            <a class="nav-link" href="/job_applications/calendar">
+              <i class="fas fa-calendar-alt"></i> Interview Calendar
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/job_applications/new">Add Job</a>
+            <a class="nav-link" href="/job_applications/new">
+              <i class="fas fa-plus"></i> Add Job
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/resumes">
+              <i class="fas fa-file-alt"></i> Resume Builder
+            </a>
           </li>
         </ul>
       </div>

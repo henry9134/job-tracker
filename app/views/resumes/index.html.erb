@@ -1,0 +1,109 @@
+<h1>Resume Builder</h1>
+<p>Welcome to your resume builder. Please use the form to create your resume.</p>
+
+<h1 class="mb-4">Resume Builder</h1>
+<p>Fill out the form below to build your resume.</p>
+
+<%= form_with url: resumes_path, method: :post, local: true, class: "row g-3" do |form| %>
+  <!-- Personal Information -->
+  <div class="col-md-6">
+    <%= form.label :name, "Full Name" %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :dob, "Date of Birth" %>
+    <%= form.date_field :dob, class: "form-control", required: true %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :phone_number, "Phone Number" %>
+    <%= form.telephone_field :phone_number, class: "form-control", required: true %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :email, "Email Address" %>
+    <%= form.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :links, "Links (GitHub, LinkedIn, etc.)" %>
+    <%= form.text_area :links, class: "form-control", placeholder: "Enter URLs separated by commas" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :summary, "Professional Summary" %>
+    <%= form.text_area :summary, class: "form-control", rows: 4 %>
+  </div>
+
+  <!-- Education -->
+  <h3 class="mt-4">Education</h3>
+  <div class="col-md-6">
+    <%= form.label :school, "School/University" %>
+    <%= form.text_field :school, class: "form-control" %>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label :entry_date, "Entry Date" %>
+    <%= form.date_field :entry_date, class: "form-control" %>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label :graduation_date, "Graduation Date" %>
+    <%= form.date_field :graduation_date, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :major, "Major/Field of Study" %>
+    <%= form.text_field :major, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :education_description, "Education Details" %>
+    <%= form.text_area :education_description, class: "form-control", rows: 3 %>
+  </div>
+
+  <!-- Experience -->
+  <h3 class="mt-4">Work Experience</h3>
+  <div class="col-md-6">
+    <%= form.label :company, "Company Name" %>
+    <%= form.text_field :company, class: "form-control" %>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label :position, "Position Title" %>
+    <%= form.text_field :position, class: "form-control" %>
+  </div>
+
+  <div class="col-md-3">
+    <%= form.label :location, "Location" %>
+    <%= form.text_field :location, class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :years_worked, "Years Worked" %>
+    <%= form.number_field :years_worked, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :experience_description, "Experience Details" %>
+    <%= form.text_area :experience_description, class: "form-control", rows: 3 %>
+  </div>
+
+  <!-- Skills and Certifications -->
+  <h3 class="mt-4">Skills & Certifications</h3>
+  <div class="col-12">
+    <%= form.label :skills, "Skills" %>
+    <%= form.text_area :skills, class: "form-control", placeholder: "List your skills here" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :certifications, "Certifications" %>
+    <%= form.text_area :certifications, class: "form-control", placeholder: "List your certifications here" %>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="col-12 mt-3">
+    <%= form.submit "Save Resume", class: "btn btn-primary" %>
+  </div>
+<% end %>

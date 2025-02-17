@@ -10,9 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_17_063102) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_17_071316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "certifications", force: :cascade do |t|
+    t.bigint "resume_id", null: false
+    t.string "name"
+    t.string "organization"
+    t.date "issue_date"
+    t.date "expiration_date"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_certifications_on_resume_id"
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.bigint "resume_id", null: false
+    t.string "school_name"
+    t.date "start_date"
+    t.date "graduation_date"
+    t.string "major"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_educations_on_resume_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "resume_id", null: false
+    t.string "company_name"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "position"
+    t.string "location"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_experiences_on_resume_id"
+  end
 
   create_table "job_applications", force: :cascade do |t|
     t.string "company"
@@ -23,6 +60,26 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_17_063102) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "interview_date"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "name"
+    t.date "date_of_birth"
+    t.string "phone_number"
+    t.string "email"
+    t.text "summary"
+    t.string "github_link"
+    t.string "linkedin_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.bigint "resume_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_skills_on_resume_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +94,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_17_063102) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "certifications", "resumes"
+  add_foreign_key "educations", "resumes"
+  add_foreign_key "experiences", "resumes"
+  add_foreign_key "skills", "resumes"
 end
