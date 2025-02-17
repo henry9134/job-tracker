@@ -1,40 +1,49 @@
-<h1>Job Applications</h1>
-
-<!-- Links for adding new jobs and viewing the calendar -->
-<%= link_to "View Interview Calendar", calendar_job_applications_path, class: "btn btn-info" %><br><br>
-<%= link_to "Add New Job", new_job_application_path, class: "btn btn-primary" %><br><br>
-
-<!-- Job Applications Organized in Columns -->
-<div style="display: flex; justify-content: space-between;">
-
+<div class="row">
   <!-- Pending Applications -->
-  <div style="width: 30%;">
-    <h2>Pending Applications</h2>
-    <ul>
-      <% @job_applications.where(status: "Pending").each do |job| %>
-        <li><%= job.company %></li>
-      <% end %>
-    </ul>
+  <div class="col-md-4">
+    <div class="card border-warning mb-3">
+      <div class="card-header text-white bg-warning">Pending Applications</div>
+      <div class="card-body">
+        <ul class="list-group">
+          <% @job_applications.where(status: "Pending").each do |job| %>
+            <li class="list-group-item">
+              <strong><%= job.company %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- Accepted Applications -->
-  <div style="width: 30%;">
-    <h2>Accepted Applications</h2>
-    <ul>
-      <% @job_applications.where(status: "Accepted").each do |job| %>
-        <li><%= job.company %></li>
-      <% end %>
-    </ul>
+  <div class="col-md-4">
+    <div class="card border-success mb-3">
+      <div class="card-header text-white bg-success">Accepted Applications</div>
+      <div class="card-body">
+        <ul class="list-group">
+          <% @job_applications.where(status: "Accepted").each do |job| %>
+            <li class="list-group-item">
+              <strong><%= job.company %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- Rejected Applications -->
-  <div style="width: 30%;">
-    <h2>Rejected Applications</h2>
-    <ul>
-      <% @job_applications.where(status: "Rejected").each do |job| %>
-        <li><%= job.company %></li>
-      <% end %>
-    </ul>
+  <div class="col-md-4">
+    <div class="card border-danger mb-3">
+      <div class="card-header text-white bg-danger">Rejected Applications</div>
+      <div class="card-body">
+        <ul class="list-group">
+          <% @job_applications.where(status: "Rejected").each do |job| %>
+            <li class="list-group-item">
+              <strong><%= job.company %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
-
 </div>

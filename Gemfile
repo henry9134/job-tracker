@@ -69,4 +69,13 @@ end
 gem "ostruct"
 
 gem "mechanize", "~> 2.14"
+
 gem "nokogiri", "~> 1.18"
+
+gem "bootstrap", "~> 5.3"
+
+gem "sassc-rails", "~> 2.1"
+
+gem 'devise'
+
+gem 'font-awesome-rails'
