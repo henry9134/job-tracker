@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
-  # Add the resume routes here
   resources :resumes
+
+  # ✅ Add this at the end
+  namespace :api do
+    resources :jobs, only: [:create]
+  end
 end
