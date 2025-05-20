@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  # ✅ Ensure API routes take priority
+  namespace :api do
+    resources :jobs, only: [:create]
+  end
+
   root "job_applications#index"
 
   resources :job_applications do
@@ -9,9 +15,4 @@ Rails.application.routes.draw do
   end
 
   resources :resumes
-
-  # ✅ Add this at the end
-  namespace :api do
-    resources :jobs, only: [:create]
-  end
 end
